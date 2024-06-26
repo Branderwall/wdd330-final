@@ -8,10 +8,17 @@
     "prettier": "^3.3.2"
   },
   "devDependencies": {
+    "@eslint/compat": "^1.1.0",
+    "eslint": "^9.5.0",
+    "eslint-config-prettier": "^9.1.0",
     "vite": "^5.3.1"
   },
   "scripts": {
     "start": "vite",
+    "build": "vite build",
+    "lint": "eslint *.js src/**/*.js",
+    "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\"",
+    "prep": "lint && format",
     "test": "test"
   },
   "repository": {
