@@ -1,0 +1,27 @@
+{
+  "name": "star-wars-travel-agency",
+  "version": "1.0.0",
+  "description": "WDD 330 Final Project",
+  "main": "main.js",
+  "dependencies": {
+    "node": "^20.15.0",
+    "prettier": "^3.3.2"
+  },
+  "devDependencies": {
+    "vite": "^5.3.1"
+  },
+  "scripts": {
+    "start": "vite",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Branderwall/wdd330-final.git"
+  },
+  "author": "Adam Tan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Branderwall/wdd330-final/issues"
+  },
+  "homepage": "https://github.com/Branderwall/wdd330-final#readme"
+}
