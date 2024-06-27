@@ -8,11 +8,17 @@
   --space-black: #141318;
 }
 
+html {
+  height: 100%;
+  background-color: var(--space-black);
+  overflow: scroll;
+}
+
 @font-face {
   font-family: 'star_jedi_outlineregular';
   src:
-    url('../public/fonts/starjout-webfont.woff2') format('woff2'),
-    url('../public/fonts/starjout-webfont.woff') format('woff');
+    url('/fonts/starjout-webfont.woff2') format('woff2'),
+    url('/fonts/starjout-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -20,22 +26,181 @@
 @font-face {
   font-family: 'star_jediregular';
   src:
-    url('../public/fonts/starjedi-webfont.woff2') format('woff2'),
-    url('../public/fonts/starjedi-webfont.woff') format('woff');
+    url('/fonts/starjedi-webfont.woff2') format('woff2'),
+    url('/fonts/starjedi-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'star_jedi_hollowregular';
+  src: url('/fonts/starjhol-webfont.woff2') format('woff2'),
+       url('/fonts/starjhol-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 body {
   background-color: var(--space-black);
+  /* background: no-repeat center repeating-conic-gradient(from 0deg, var(--hyperspace-light-blue) 0deg 1deg, var(--space-black) 1deg 4deg); */
 }
 
 p {
   color: white;
 }
 
+#stars {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: var(--star-coords);
+  animation: starScroll 150s linear infinite;
+}
+
+#stars:after {
+  content: ' ';
+  position: absolute;
+  top: 2000px;
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: var(--star-coords);
+}
+
+#stars2 {
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: var(--star-coords2);
+  animation: starScroll 100s linear infinite;
+}
+
+#stars2:after {
+  content: ' ';
+  position: absolute;
+  top: 2000px;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: var(--star-coords2);
+}
+
+#stars3 {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: var(--star-coords3);
+  animation: starScroll 50s linear infinite;
+}
+
+#stars3:after {
+  content: ' ';
+  position: absolute;
+  top: 2000px;
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: var(--star-coords3);
+}
+
 .site-title {
-  font-family: 'star_jedi_outlineregular';
-  font-size: 2rem;
+  font-family: 'star_jedi_hollowregular';
+  font-size: 3rem;
+  line-height: 2.5rem;
   color: var(--credit-yellow);
 }
+
+.header-menu {
+  /* width: 90%; */
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu li {
+  color: var(--credit-yellow);
+  padding: 0.5rem;
+  background-color: var(--space-black);
+  border: solid 1px var(--credit-yellow);
+}
+
+.hero-slider {
+  overflow: hidden;
+}
+
+#slider {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  width: 100%;
+  list-style: none;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+.slide {
+  width: 100%;
+  height: 50vh;
+  flex: 1 0 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide-image {
+  width: 100%;
+  height: auto;
+}
+
+.slide-arrow {
+  position: absolute;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 4rem;
+  background-color: white;
+  border: none;
+  width: 2rem;
+  font-size: 3rem;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 100ms;
+}
+.slide-arrow:hover,
+.slide-arrow:focus {
+  opacity: 1;
+}
+#slide-arrow-prev {
+  left: 0;
+  padding-left: 0.25rem;
+  border-radius: 0 2rem 2rem 0;
+}
+#slide-arrow-next {
+  right: 0;
+  padding-left: 0.75rem;
+  border-radius: 2rem 0 0 2rem;
+}
+
+.star-container {
+  height: 100%;
+  overflow: hidden;
+}
+
+
+
+/* @keyframes starScroll {
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(-2100px);
+  }
+} */
