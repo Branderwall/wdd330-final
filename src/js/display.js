@@ -4,7 +4,7 @@ export function renderSlider(slider) {
   let carousel = [];
 
   let slideContainer = qs('#slider');
-  // let slides = qsAll('.slide');
+  // let slides = qsAll('.slide::before');
   let prevBtn = qs('#slide-arrow-prev');
   let nextBtn = qs('#slide-arrow-next');
 
@@ -13,8 +13,9 @@ export function renderSlider(slider) {
   // Add each slide to an array
   for (let i = 0; i < slider.length; i++) {
     carousel[i] =
-      `<li class="slide" style="background-image: url('${slider[i].src}')"><img id="slide-${i}" class="slide-image" src="${slider[i].src}" alt="${slider[i].alt}" /></li>`;
-    
+      `<li id="slide-${i}" class="slide" style="--bg-image: url(${slider[i].src})">
+        <img id="slide-image-${i}" class="slide-image" src="${slider[i].src}" alt="${slider[i].alt}" />
+      </li>`;
   }
 
   let carouselHTML = carousel.join('');

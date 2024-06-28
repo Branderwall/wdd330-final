@@ -8,4 +8,3 @@ let data = await getJson('slider');
 let homeSlider = data.images;
 
 renderSlider(homeSlider);
-

@@ -1,4 +1,3 @@
-
 export function qs(selector) {
   return document.querySelector(selector);
 }
@@ -14,6 +13,3 @@ export function convertToJson(res) {
     throw new Error('Bad Response');
   }
 }
-
-
-

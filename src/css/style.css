@@ -51,19 +51,18 @@ html {
 }
 
 @font-face {
-  font-family: "News Cycle", sans-serif;
+  font-family: 'News Cycle', sans-serif;
   src: url('https://fonts.googleapis.com/css2?family=News+Cycle:wght@400&display=swap');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "News Cycle", sans-serif;
+  font-family: 'News Cycle', sans-serif;
   src: url('https://fonts.googleapis.com/css2?family=News+Cycle:wght@700&display=swap');
   font-weight: 700;
   font-style: normal;
 }
-
 
 body {
   background-color: var(--space-black);
@@ -96,7 +95,7 @@ button {
   font-size: 1.25rem;
 }
 
-button[type="submit"] {
+button[type='submit'] {
   border: solid 2px var(--credit-yellow);
   background-color: var(--credit-yellow);
   color: var(--space-black);
@@ -106,14 +105,14 @@ button[type="submit"] {
   padding: 1rem;
 }
 
-button[type="submit"]:hover {
+button[type='submit']:hover {
   /* background-color: var(--credit-yellow);
   color: var(--space-black); */
   background-color: var(--space-black);
   color: var(--credit-yellow);
 }
 
-button[type="submit"]:active {
+button[type='submit']:active {
   background-color: var(--r2d2-blue);
   color: var(--credit-yellow);
 }
@@ -241,17 +240,28 @@ footer {
 .slide {
   width: 100%;
   max-height: 90vh;
-  /* height: auto; */
+  height: 100%;
   flex: 1 0 100%;
+  /* background-size: cover;
+  background-position: center;
+  background-image: url('./images/hoth-valley.jpeg'); */
+  /* background-color: var(--hyperspace-light-blue); */
+}
+
+/* .slide::before {
+  position:absolute;
+  left:0;
+  top:0;
   background-size: cover;
   background-position: center;
-  background-color: var(--hyperspace-light-blue);
-  /* filter: blur(8px); */
-}
+  background-image: url('./images/hoth-valley.jpeg');
+  filter: blur(8px);
+  z-index: 100;
+} */
 
 .slide-image {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 }
 
