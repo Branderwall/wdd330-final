@@ -13,8 +13,8 @@ export function renderSlider(slider) {
   // Add each slide to an array
   for (let i = 0; i < slider.length; i++) {
     carousel[i] =
-      `<li class="slide" style="background-image: url('${slider[i].src}')"></li>`;
-    // <img id="slide-${i}" class="slide-image" src="${slider[i].src}" alt="${slider[i].alt}"></img>
+      `<li class="slide" style="background-image: url('${slider[i].src}')"><img id="slide-${i}" class="slide-image" src="${slider[i].src}" alt="${slider[i].alt}" /></li>`;
+    
   }
 
   let carouselHTML = carousel.join('');

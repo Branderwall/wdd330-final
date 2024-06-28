@@ -23,17 +23,70 @@
     </header>
     <main>
       <div class="hero-slider">
-        <button class="slide-arrow" id="slide-arrow-prev" type="button">&#8249;</button>
-        <button class="slide-arrow" id="slide-arrow-next" type="button">&#8250;</button>
+        <div class="arrow-container">
+          <button class="slide-arrow" id="slide-arrow-prev" type="button">
+            &#8249;
+          </button>
+        </div>
         <ul id="slider"></ul>
+        <div class="arrow-container">
+          <button class="slide-arrow" id="slide-arrow-next" type="button">
+            &#8250;
+          </button>
+        </div>
       </div>
-      <div class="booking-form">This is a booking form.</div>
-      <div class="content">
-        <p>This is promotional text</p>
-        <p>I have a bad feeling about this. Again.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita fugit optio, maxime consectetur necessitatibus reiciendis dignissimos pariatur a, laboriosam dolorum at animi maiores dolorem atque officia! Fugiat temporibus cum veniam. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt ipsa eligendi ipsum laborum laudantium ullam labore minima tempora voluptatibus eius ut placeat facilis laboriosam nesciunt, provident numquam omnis facere voluptates! Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, reiciendis sunt unde autem omnis ut magnam aspernatur possimus voluptatum modi illum corporis quasi placeat. Possimus reprehenderit quod soluta pariatur architecto.</p>
+      <div class="booking-form content-width">
+        <h2 class="form-title">Book Your Trip</h2>
+        <form name="booking" class="booking-form">
+          <input type="text" name="from" placeholder="From Destination" />
+          <input type="text" name="to" placeholder="To Destination" />
+          <input type="date" name="leave-date" placeholder="Leave By" />
+          <input type="date" name="arrive-date" placeholder="Arrive By" />
+          <input
+            type="number"
+            title="Travelers"
+            name="traveler-count"
+            value="1"
+            min="1"
+            max="8"
+          />
+          <div>
+            <label for="roundtrip">Roundtrip</label>
+            <input
+              type="checkbox"
+              name="roundtrip"
+              title="Roundtrip"
+              unchecked
+            />
+          </div>
+          <button type="submit">Book Travel</button>
+        </form>
+      </div>
+      <div class="content content-width">
+        <p>
+          Welcome to Galactic Travels! Your gateway to the wonders of the
+          cosmos. Whether you're dreaming of serene getaways to distant stars or
+          thrilling adventures across the galaxy, our expert team is here to
+          turn your cosmic fantasies into reality. At Galactic Travels, we
+          believe that the universe is your playground, and we're dedicated to
+          crafting unforgettable experiences that transcend the boundaries of
+          your home planet. Explore our curated destinations, each offering
+          unique landscapes, cultures, and experiences that are truly out of
+          this world.
+        </p>
+
+        <p>
+          Discover the Extraordinary with Galactic Travels! Our commitment to
+          excellence ensures that every aspect of your journey is meticulously
+          planned and flawlessly executed. From seamless bookings to
+          personalized itineraries, we cater to your every need, so you can
+          focus on the adventure ahead. Embark on a stellar journey with us and
+          unlock the mysteries of the cosmos, one breathtaking destination at a
+          time. The stars await—let Galactic Travels be your trusted guide
+          through the infinite possibilities of space travel.
+        </p>
       </div>
     </main>
-    <footer><p>This is a footer.</p></footer>
+    <footer></footer>
   </body>
 </html>
