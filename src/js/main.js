@@ -1,10 +1,12 @@
 import renderHeaderFooter from './headerfooter.js';
-import { getJson } from './dataServices.js';
 import { renderSlider } from './display.js';
+import { getAPI } from './dataServices.js';
+// import { getFandom } from './externalApi.js';
 
 renderHeaderFooter();
+renderSlider();
+// getFandom();
 
-let data = await getJson('slider');
-let homeSlider = data.images;
 
-renderSlider(homeSlider);
+let planetData = await getAPI('planets/');
+console.log('planetData: ' + planetData.length);

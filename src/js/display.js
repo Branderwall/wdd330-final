@@ -1,7 +1,10 @@
 import { qs, qsAll } from './utils';
+import { getJson } from './dataServices.js';
 
-export function renderSlider(slider) {
+export async function renderSlider() {
   let carousel = [];
+  let data = await getJson('slider');
+  let slider = data.images;
 
   let slideContainer = qs('#slider');
   // let slides = qsAll('.slide::before');

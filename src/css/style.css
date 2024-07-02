@@ -89,6 +89,18 @@ p {
   font-size: 1.25rem;
 }
 
+header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer {
+  text-align: center;
+}
+
 input,
 label,
 button {
@@ -117,9 +129,7 @@ button[type='submit']:active {
   color: var(--credit-yellow);
 }
 
-footer {
-  text-align: center;
-}
+
 
 #stars {
   width: 1px;
@@ -186,10 +196,11 @@ footer {
   font-size: 3rem;
   line-height: 2.5rem;
   color: var(--credit-yellow);
+  margin-bottom: 1rem;
 }
 
 .header-menu {
-  /* width: 90%; */
+  display: block;
 }
 
 .menu {
@@ -322,6 +333,18 @@ footer {
   padding: 1rem 2rem 0 2rem;
   font-size: 2rem;
   /* text-align: center; */
+}
+
+.menu-button {
+   color: white;
+   background: none;
+   border: none;
+   font-size: 2rem;
+   cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
 
 /* @keyframes starScroll {

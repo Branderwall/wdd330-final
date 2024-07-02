@@ -1,6 +1,6 @@
 import { qs } from './utils';
 
-export default function renderHeaderFooter() {
+export default async function renderHeaderFooter() {
   // let stars = `<section class="star-container">
   //   <div id="stars"></div>
   //   <div id="stars2"></div>
@@ -10,19 +10,24 @@ export default function renderHeaderFooter() {
   let headerEl = qs('header');
   let footerEl = qs('footer');
 
-  let header = `<div class="site-title">galactic<br />travels</div>
-      <div class="header-menu">
-        <ul class="menu">
-          <li onclick="location.href = '/'">Home</li>
-          <li onclick="location.href = '/destination/'">Destinations</li>
-          <li onclick="location.href = '/about/'">About</li>
-        </ul>
-      </div>`;
+  let header = `
+      <div class="site-title">galactic<br />travels</div>
+      <button class="menu-button" type="button">&#9776;</button>`;
+
+  let nav = 
+    `<div id="header-nav" class="header-menu popover">
+      <ul class="menu">
+        <li onclick="location.href = '/'">Home</li>
+        <li onclick="location.href = '/destination/'">Destinations</li>
+        <li onclick="location.href = '/about/'">About</li>
+      </ul>
+    </div>`;
 
   let footer = `<p>&copy; Not a real website</p>`;
 
   headerEl.textContent = '';
   headerEl.insertAdjacentHTML('afterbegin', header);
+  headerEl.insertAdjacentHTML('afterend', nav);
 
   footerEl.textContent = '';
   footerEl.insertAdjacentHTML('afterbegin', footer);
@@ -64,3 +69,4 @@ function generateRandomCoords(length) {
   }
   return output;
 }
+
