@@ -66,7 +66,7 @@ html {
 
 body {
   background-color: var(--space-black);
-  overflow: hidden;
+  /* overflow: hidden; */
   /* background: no-repeat center repeating-conic-gradient(from 0deg, var(--hyperspace-light-blue) 0deg 1deg, var(--space-black) 1deg 4deg); */
 }
 
@@ -91,10 +91,10 @@ p {
 
 header {
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  top: 0;
+  position: sticky;
+  z-index: 2;
 }
 
 footer {
@@ -128,7 +128,6 @@ button[type='submit']:active {
   background-color: var(--r2d2-blue);
   color: var(--credit-yellow);
 }
-
 
 
 #stars {
@@ -177,7 +176,7 @@ button[type='submit']:active {
   background: transparent;
   box-shadow: var(--star-coords3);
   animation: starScroll 50s linear infinite;
-  z-index: -10;
+  /* z-index: -10; */
 }
 
 #stars3:after {
@@ -199,8 +198,25 @@ button[type='submit']:active {
   margin-bottom: 1rem;
 }
 
+.header-area {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--space-black);
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
 .header-menu {
   display: block;
+  opacity: 0;
+  z-index: 1;
+}
+
+.menu-open {
+  height: auto;
+  opacity: 1;
 }
 
 .menu {
@@ -208,6 +224,7 @@ button[type='submit']:active {
   flex-direction: column;
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .menu li {
@@ -332,7 +349,6 @@ button[type='submit']:active {
   margin: 0;
   padding: 1rem 2rem 0 2rem;
   font-size: 2rem;
-  /* text-align: center; */
 }
 
 .menu-button {
@@ -342,6 +358,8 @@ button[type='submit']:active {
    font-size: 2rem;
    cursor: pointer;
 }
+
+
 
 .hidden {
   display: none;
@@ -355,3 +373,68 @@ button[type='submit']:active {
     transform: translateY(-2100px);
   }
 } */
+
+@keyframes flydown {
+  from {
+    transform: translateY(-100px);
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    height: auto;
+    opacity: 1;
+  }
+}
+
+@keyframes flyup {
+  from {
+    transform: translateY(0px);
+    height: auto;
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100px);
+    height: 0;
+    opacity: 0;
+  }
+}
+
+
+@keyframes flyFromRight {
+  from {
+    transform: translateX(750px);
+    /* height: 0; */
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    /* height: auto; */
+    opacity: 1;
+  }
+}
+
+@keyframes flyToRight {
+  from {
+    transform: translateX(0px);
+    /* height: auto; */
+    opacity: 1;
+  }
+  to {
+    transform: translateX(750px);
+    /* height: 0; */
+    opacity: 0;
+  }
+}
+
+
+@media screen and (min-width: 750px) {
+  .header-menu {
+    width: 500px;
+    float: right;
+    right: 0.5rem;
+    top: 7rem;
+    position: fixed;
+  }
+
+}

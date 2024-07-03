@@ -1,4 +1,10 @@
-import { qs } from './utils';
+import { qs, consoleLog } from './utils';
+
+let headerEl = qs('header');
+let footerEl = qs('footer');
+
+let showMenu = false;
+
 
 export default async function renderHeaderFooter() {
   // let stars = `<section class="star-container">
@@ -6,16 +12,16 @@ export default async function renderHeaderFooter() {
   //   <div id="stars2"></div>
   //   <div id="stars3"></div>
   //   </section>`;
-
-  let headerEl = qs('header');
-  let footerEl = qs('footer');
+ 
 
   let header = `
+    <div class="header-area">
       <div class="site-title">galactic<br />travels</div>
-      <button class="menu-button" type="button">&#9776;</button>`;
+      <button class="menu-button" type="button">&#9776;</button>
+    </div>`;
 
   let nav = 
-    `<div id="header-nav" class="header-menu popover">
+    `<div id="header-nav" class="header-menu">
       <ul class="menu">
         <li onclick="location.href = '/'">Home</li>
         <li onclick="location.href = '/destination/'">Destinations</li>
@@ -27,10 +33,20 @@ export default async function renderHeaderFooter() {
 
   headerEl.textContent = '';
   headerEl.insertAdjacentHTML('afterbegin', header);
-  headerEl.insertAdjacentHTML('afterend', nav);
+  headerEl.insertAdjacentHTML('beforeend', nav);
 
   footerEl.textContent = '';
   footerEl.insertAdjacentHTML('afterbegin', footer);
+
+  // menu toggle event listener
+  document.addEventListener('click', (event) => {
+    let target = event.target.closest('.menu-button');
+    if (target) {
+      toggleMenu();
+    }
+  });
+
+ 
 
   // render stars
 
@@ -70,3 +86,17 @@ function generateRandomCoords(length) {
   return output;
 }
 
+function toggleMenu() {
+  showMenu = !showMenu;
+  let menu = qs('#header-nav');
+  let menuBtn = qs('.menu-button');
+  if (showMenu) {
+    menu.classList.add('menu-open');
+    // menu.classList.remove('hidden');
+    menuBtn.innerHTML = '&times;';
+  } else {
+    // menu.classList.add('hidden');
+    menu.classList.remove('menu-open');
+    menuBtn.innerHTML = '&#9776;'
+  }
+}

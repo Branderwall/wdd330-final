@@ -13,3 +13,22 @@ export async function convertToJson(res) {
     throw new Error('Bad Response');
   }
 }
+
+export function consoleLog(test) {
+  console.log(`${test}: ${JSON.stringify(test)}`);
+}
+
+export function getArgs(args) {
+  var argsObj = {};
+
+  var argList = /\(([^)]*)/.exec(args.callee)[1];
+  var argCnt = 0;
+  var tokens;
+  var argRe = /\s*([^,]+)/g;
+
+  while (tokens = argRe.exec(argList)) {
+      argsObj[tokens[1]] = args[argCnt++];
+  }
+
+  return argsObj;
+}
