@@ -8,7 +8,7 @@ export async function getJson(title) {
     .then((data) => data);
 }
 
-export async function getAPI(url, filter = (info) => info) {
+export async function getAPI(url = '', filter = (info) => info) {
   let path = '';
   if (url.includes('http')) {
     path = url;
@@ -26,6 +26,53 @@ export async function getAPI(url, filter = (info) => info) {
     data = data.concat(nextData);
   }
 
-  let filteredData = data.filter(filter);
+  let filteredData = data.map((item) => {
+    return filter(item);
+  });
+
+  // await subAPI(filteredData);
   return filteredData;
+}
+
+export function planetSchema(data) {
+  let template = ['name', 'climate', 'terrain', 'population'];
+  let filteredData = Object.fromEntries(
+    Object.entries(data).filter(([key]) => template.includes(key)),
+  );
+  return filteredData;
+}
+
+export function nameOnlySchema(data) {
+   let template = ['name'];
+  let filteredData = Object.fromEntries(
+    Object.entries(data).filter(([key]) => template.includes(key)),
+  );
+  return filteredData;
+}
+
+async function subAPI(filteredData) {
+  let newData = filteredData;
+  let subPositions = [];
+  let arrayKey = [];
+  newData.forEach((data) => {
+    for (const [key, value] of Object.entries(data)) {
+      if (Array.isArray(value)) {
+        arrayKey.push(key);
+        for (let i = 0; i < value.length; i++) {
+          subPositions.push(value[i]);
+        }
+      }
+    }
+  });
+
+
+  //make api calls
+  // subPositions.length
+  // for (let i = 0; i < 1; i++) {
+    // console.log("newData: " + JSON.stringify(subPositions[i]));
+    // let subAPI = await getAPI(subPositions[i]);
+    let subAPI = await getAPI('https://swapi.py4e.com/api/people/1/', nameOnlySchema);
+    newData.arrayKey[0][i] = subAPI;
+  // }
+
 }

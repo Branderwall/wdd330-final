@@ -32,3 +32,15 @@ export function getArgs(args) {
 
   return argsObj;
 }
+
+export function getParam(param) {
+  const params = window.location.search;
+  const urlParams = new URLSearchParams(params);
+  return urlParams.get(param);
+}
+
+export function setData(selector, data) {
+  const el = qs(selector);
+  el.textContent = '';
+  el.insertAdjacentHTML('afterbegin', data);
+}

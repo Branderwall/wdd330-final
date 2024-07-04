@@ -1,7 +1,6 @@
 import renderHeaderFooter from './headerfooter.js';
 import { renderSlider } from './display.js';
-import { getAPI } from './dataServices.js';
-import { consoleLog, getArgs } from './utils.js';
+import { getAPI, planetFilter } from './dataServices.js';
 // import { getFandom } from './externalApi.js';
 
 renderHeaderFooter();
@@ -9,5 +8,5 @@ renderSlider();
 // getFandom();
 
 
-let planetData = await getAPI('planets/');
-// console.log('planetData: ' + planetData.length);
+let planetData = await getAPI('planets/', planetFilter);
+// console.log('planetData: ' + JSON.stringify(planetData[0]));

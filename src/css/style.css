@@ -81,6 +81,7 @@ h4,
 h5,
 h6 {
   font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+  color: white;
 }
 
 div,
@@ -210,6 +211,7 @@ button[type='submit']:active {
 
 .header-menu {
   display: block;
+  height: 0;
   opacity: 0;
   z-index: 1;
 }
