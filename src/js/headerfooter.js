@@ -16,7 +16,7 @@ export default async function renderHeaderFooter() {
 
   let header = `
     <div class="header-area">
-      <div class="site-title">galactic<br />travels</div>
+      <div class="site-title" onclick="location.href = '/'">galactic<br />travels</div>
       <button class="menu-button" type="button">&#9776;</button>
     </div>`;
 
@@ -29,7 +29,8 @@ export default async function renderHeaderFooter() {
       </ul>
     </div>`;
 
-  let footer = `<p>&copy; Not a real website</p>`;
+  let footer = `<p>&copy; Not a real website</p>
+  <div id="footer-planet"></div>`;
 
   headerEl.textContent = '';
   headerEl.insertAdjacentHTML('afterbegin', header);
