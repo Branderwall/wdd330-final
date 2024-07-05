@@ -5,15 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/destination.js" type="module"></script>
-    <title>Document</title>
+    <title>Destinations</title>
   </head>
   <body>
     <header></header>
     <main>
-      <h1 id="planet-name">Destination</h1>
-      <p id="climate">climate</p>
-      <p id="terrain">terrain</p>
-      <p id="population">population</p>
+      <div class="hero-slider content-width">
+        <div class="arrow-container">
+          <button class="slide-arrow" id="slide-arrow-prev" type="button">
+            &#8249;
+          </button>
+        </div>
+        <ul id="slider"></ul>
+        <div class="arrow-container">
+          <button class="slide-arrow" id="slide-arrow-next" type="button">
+            &#8250;
+          </button>
+        </div>
+      </div>
+      <section class="stats content-width">
+        <h1 id="planet-name">Destination</h1>
+        <p id="climate">climate</p>
+        <p id="terrain">terrain</p>
+        <p id="population">population</p>
+      </section>
+      <section class="description content-width">
+        <h2>Subtitle</h2>
+      </section>
     </main>
     <footer></footer>
   </body>

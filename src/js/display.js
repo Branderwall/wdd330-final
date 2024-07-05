@@ -1,9 +1,9 @@
 import { qs, qsAll, setData } from './utils';
 import { getJson } from './dataServices.js';
 
-export async function renderSlider() {
+export async function renderSlider(src = 'slider') {
   let carousel = [];
-  let data = await getJson('slider');
+  let data = await getJson(src);
   let slider = data.images;
 
   let slideContainer = qs('#slider');
@@ -35,16 +35,44 @@ export async function renderSlider() {
   });
 }
 
-
-export function renderDestination(data) {
+export async function renderDestination(data, data2) {
   setData('#planet-name', data.name);
   setData('#climate', 'Climate: ' + data.climate);
   setData('#terrain', 'Terrain: ' + data.terrain);
   setData('#population', 'Population: ' + data.population);
+  setData('title', `${data.name} | Destinations`);
 
-
+  // let data2 = await getJson(data.name);
+  console.log('data2: ' + JSON.stringify(data2));
+  let titleSelector = '.description > h2';
+  setData(titleSelector, data2.title);
+  renderListWithTemplate(
+    data2.description,
+    renderPFn,
+    titleSelector,
+    false,
+    'afterend',
+  );
 }
 
+export function renderListWithTemplate(
+  list,
+  template,
+  selector,
+  clear = true,
+  position = 'afterbegin',
+) {
+  let renderedList = list.map((item) => template(item));
+  if (clear) {
+    setData(selector, renderedList);
+  } else {
+    qs(selector).insertAdjacentHTML(position, renderedList.join(''));
+  }
+}
+
+function renderPFn(data) {
+  return `<p>${data}</p>`;
+}
 
 // {"name":"Tatooine",
 //   "climate":"arid",

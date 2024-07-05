@@ -5,14 +5,12 @@ let footerEl = qs('footer');
 
 let showMenu = false;
 
-
 export default async function renderHeaderFooter() {
   // let stars = `<section class="star-container">
   //   <div id="stars"></div>
   //   <div id="stars2"></div>
   //   <div id="stars3"></div>
   //   </section>`;
- 
 
   let header = `
     <div class="header-area">
@@ -20,8 +18,7 @@ export default async function renderHeaderFooter() {
       <button class="menu-button" type="button">&#9776;</button>
     </div>`;
 
-  let nav = 
-    `<div id="header-nav" class="header-menu">
+  let nav = `<div id="header-nav" class="header-menu">
       <ul class="menu">
         <li onclick="location.href = '/'">Home</li>
         <li onclick="location.href = '/destination/'">Destinations</li>
@@ -46,8 +43,6 @@ export default async function renderHeaderFooter() {
       toggleMenu();
     }
   });
-
- 
 
   // render stars
 
@@ -98,6 +93,6 @@ function toggleMenu() {
   } else {
     // menu.classList.add('hidden');
     menu.classList.remove('menu-open');
-    menuBtn.innerHTML = '&#9776;'
+    menuBtn.innerHTML = '&#9776;';
   }
 }

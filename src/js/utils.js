@@ -26,8 +26,8 @@ export function getArgs(args) {
   var tokens;
   var argRe = /\s*([^,]+)/g;
 
-  while (tokens = argRe.exec(argList)) {
-      argsObj[tokens[1]] = args[argCnt++];
+  while ((tokens = argRe.exec(argList))) {
+    argsObj[tokens[1]] = args[argCnt++];
   }
 
   return argsObj;

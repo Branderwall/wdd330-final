@@ -3,7 +3,7 @@ import { convertToJson } from './utils';
 let apiUrl = import.meta.env.VITE_API_URL;
 
 export async function getJson(title) {
-  return await fetch(`../json/${title}.json`)
+  return await fetch(`/json/${title}.json`)
     .then(convertToJson)
     .then((data) => data);
 }
@@ -43,7 +43,7 @@ export function planetSchema(data) {
 }
 
 export function nameOnlySchema(data) {
-   let template = ['name'];
+  let template = ['name'];
   let filteredData = Object.fromEntries(
     Object.entries(data).filter(([key]) => template.includes(key)),
   );
@@ -65,14 +65,15 @@ async function subAPI(filteredData) {
     }
   });
 
-
   //make api calls
   // subPositions.length
   // for (let i = 0; i < 1; i++) {
-    // console.log("newData: " + JSON.stringify(subPositions[i]));
-    // let subAPI = await getAPI(subPositions[i]);
-    let subAPI = await getAPI('https://swapi.py4e.com/api/people/1/', nameOnlySchema);
-    newData.arrayKey[0][i] = subAPI;
+  // console.log("newData: " + JSON.stringify(subPositions[i]));
+  // let subAPI = await getAPI(subPositions[i]);
+  let subAPI = await getAPI(
+    'https://swapi.py4e.com/api/people/1/',
+    nameOnlySchema,
+  );
+  newData.arrayKey[0][i] = subAPI;
   // }
-
 }
