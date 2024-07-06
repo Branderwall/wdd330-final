@@ -1,0 +1,12 @@
+{
+  "images": [
+    {
+      "src": "/images/Forest of Endor.jpeg",
+      "alt": "A forest of giant evergreen trees with rays of sunlight"
+    },
+    {
+      "src": "/images/Endor Bridge Path.jpeg",
+      "alt": "A wood plank bridge path through a dense forest"
+    }
+  ]
+}

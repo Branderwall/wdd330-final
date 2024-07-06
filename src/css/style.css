@@ -15,7 +15,7 @@ html {
   overflow-x: hidden;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'star_jedi_outlineregular';
   src:
     url('/fonts/starjout-webfont.woff2') format('woff2'),
@@ -31,7 +31,7 @@ html {
     url('/fonts/starjedi-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 @font-face {
   font-family: 'star_jedi_hollowregular';
@@ -57,12 +57,12 @@ html {
   font-style: normal;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'News Cycle', sans-serif;
   src: url('https://fonts.googleapis.com/css2?family=News+Cycle:wght@700&display=swap');
   font-weight: 700;
   font-style: normal;
-}
+} */
 
 body {
   background-color: var(--space-black);
@@ -83,6 +83,10 @@ h5,
 h6 {
   font-family: 'Quicksand', Arial, Helvetica, sans-serif;
   color: white;
+}
+
+h1 {
+  font-size: 2em;
 }
 
 div,

@@ -1,4 +1,4 @@
-import { qs, qsAll, setData } from './utils';
+import { qs, setData } from './utils';
 import { getJson } from './dataServices.js';
 
 export async function renderSlider(src = 'slider') {
@@ -42,8 +42,6 @@ export async function renderDestination(data, data2) {
   setData('#population', 'Population: ' + data.population);
   setData('title', `${data.name} | Destinations`);
 
-  // let data2 = await getJson(data.name);
-  console.log('data2: ' + JSON.stringify(data2));
   let titleSelector = '.description > h2';
   setData(titleSelector, data2.title);
   renderListWithTemplate(
@@ -74,19 +72,3 @@ function renderPFn(data) {
   return `<p>${data}</p>`;
 }
 
-// {"name":"Tatooine",
-//   "climate":"arid",
-//   "terrain":"desert",
-//   "population":"200000",
-//   "residents":
-//   ["https://swapi.py4e.com/api/people/1/",
-//     "https://swapi.py4e.com/api/people/2/",
-//     "https://swapi.py4e.com/api/people/4/",
-//     "https://swapi.py4e.com/api/people/6/",
-//     "https://swapi.py4e.com/api/people/7/",
-//     "https://swapi.py4e.com/api/people/8/",
-//     "https://swapi.py4e.com/api/people/9/",
-//     "https://swapi.py4e.com/api/people/11/",
-//     "https://swapi.py4e.com/api/people/43/",
-//     "https://swapi.py4e.com/api/people/62/"
-//   ]}

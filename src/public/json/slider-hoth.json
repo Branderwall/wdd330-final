@@ -1,0 +1,12 @@
+{
+  "images": [
+    {
+      "src": "/images/hoth-valley.jpeg",
+      "alt": "white valley covered in snow with snowy hills on either side"
+    },
+    {
+      "src": "/images/hoth-ice-cave.jpeg",
+      "alt": "interior of an ice cave looking out at a snowy landscape"
+    }
+  ]
+}

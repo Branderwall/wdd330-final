@@ -1,0 +1,12 @@
+{
+  "images": [
+    {
+      "src": "/images/Cloud City.jpeg",
+      "alt": "A Majestic round city floats above the white clouds with ships flying around it"
+    },
+    {
+      "src": "/images/Bespin Cloudscape.jpeg",
+      "alt": "A beautiful cloudscape lit by the setting sun"
+    }
+  ]
+}

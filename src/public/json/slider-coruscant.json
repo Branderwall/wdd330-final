@@ -1,0 +1,12 @@
+{
+  "images": [
+    {
+      "src": "/images/Coruscant Daytime.jpeg",
+      "alt": "Tall skyscrapers line up on either side of an open road with an urban landscape that reaches the horizon"
+    },
+    {
+      "src": "/images/Coruscant Nighttime.jpeg",
+      "alt": "Tall rise above a darkened cityscape with lit streets and a moon rising in the distance"
+    }
+  ]
+}

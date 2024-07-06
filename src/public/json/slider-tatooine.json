@@ -1,0 +1,16 @@
+{
+  "images": [
+    {
+      "src": "/images/Twin Sunset Vista.jpg",
+      "alt": "Two suns setting over a sandy expanse"
+    },
+    {
+      "src": "/images/Dune Sea.jpg",
+      "alt": "Large sand dunes spread out as far as the horizon under a clear blue sky"
+    },
+    {
+      "src": "/images/Tatooine Cityscape.png",
+      "alt": "A city full of white domed buildings illuminated by the setting suns"
+    }
+  ]
+}

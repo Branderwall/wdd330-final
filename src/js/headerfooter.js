@@ -1,4 +1,6 @@
-import { qs, consoleLog } from './utils';
+import { getJson } from './dataServices';
+import { renderListWithTemplate } from './display';
+import { qs } from './utils';
 
 let headerEl = qs('header');
 let footerEl = qs('footer');
@@ -6,11 +8,6 @@ let footerEl = qs('footer');
 let showMenu = false;
 
 export default async function renderHeaderFooter() {
-  // let stars = `<section class="star-container">
-  //   <div id="stars"></div>
-  //   <div id="stars2"></div>
-  //   <div id="stars3"></div>
-  //   </section>`;
 
   let header = `
     <div class="header-area">
@@ -18,13 +15,16 @@ export default async function renderHeaderFooter() {
       <button class="menu-button" type="button">&#9776;</button>
     </div>`;
 
-  let nav = `<div id="header-nav" class="header-menu">
+  let nav = `<div id="header-nav" class="header-menu hidden">
       <ul class="menu">
         <li onclick="location.href = '/'">Home</li>
         <li onclick="location.href = '/destination/'">Destinations</li>
         <li onclick="location.href = '/about/'">About</li>
       </ul>
     </div>`;
+
+    // const menu = getJson('menu');
+    // renderListWithTemplate(menu, menuFn, '.menu');
 
   let footer = `<p>&copy; Not a real website</p>
   <div id="footer-planet"></div>`;
@@ -45,7 +45,6 @@ export default async function renderHeaderFooter() {
   });
 
   // render stars
-
   let stars = `<div id="stars"></div>
   <div id="stars2"></div>
   <div id="stars3"></div>`;
@@ -88,11 +87,21 @@ function toggleMenu() {
   let menuBtn = qs('.menu-button');
   if (showMenu) {
     menu.classList.add('menu-open');
-    // menu.classList.remove('hidden');
+    menu.classList.remove('hidden');
     menuBtn.innerHTML = '&times;';
   } else {
-    // menu.classList.add('hidden');
+    menu.classList.add('hidden');
     menu.classList.remove('menu-open');
     menuBtn.innerHTML = '&#9776;';
   }
 }
+
+// function menuFn(list) {
+//   let menu = list.map((item) => {
+//     let menuItem = `<li onclick="location.href = '${item.url}'">${item.title}</li>`;
+//     if (item.submenu) {
+//       manuItem += menuFn(item.submenu);
+//     }
+//   })
+//   return menu.join('');
+// }

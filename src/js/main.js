@@ -3,4 +3,4 @@ import { renderSlider } from './display.js';
 // import { getFandom } from './externalApi.js';
 
 renderHeaderFooter();
-renderSlider('home-slider');
+renderSlider('slider-home');
