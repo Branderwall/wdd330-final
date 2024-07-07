@@ -59,16 +59,20 @@ export function renderListWithTemplate(
   selector,
   clear = true,
   position = 'afterbegin',
+  render = true,
 ) {
   let renderedList = list.map((item) => template(item));
-  if (clear) {
-    setData(selector, renderedList);
+  if (render) {
+    if (clear) {
+      setData(selector, renderedList.join(''));
+    } else {
+      qs(selector).insertAdjacentHTML(position, renderedList.join(''));
+    }
   } else {
-    qs(selector).insertAdjacentHTML(position, renderedList.join(''));
+    return renderedList.join('');
   }
 }
 
 function renderPFn(data) {
   return `<p>${data}</p>`;
 }
-

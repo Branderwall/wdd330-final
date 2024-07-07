@@ -8,10 +8,15 @@ await getDestination();
 
 async function getDestination() {
   let name = getParam('name');
-  let planetData = await getAPI(`/planets/?search=${name}`, planetSchema);
-  let planetDescription = await getJson(name);
-  const sliderName = (name) ? `slider-${name}` : 'slider-home';
-  renderSlider(sliderName);
+  let sliderName = '';
+  if (name) {
+    let planetData = await getAPI(`/planets/?search=${name}`, planetSchema);
+    let planetDescription = await getJson(name);
+    sliderName = `slider-${name}`;
+    await renderDestination(planetData[0], planetDescription);
+  } else {
+    sliderName = 'slider-home';
+  }
 
-  await renderDestination(planetData[0], planetDescription);
+  renderSlider(sliderName);
 }

@@ -8,7 +8,6 @@ let footerEl = qs('footer');
 let showMenu = false;
 
 export default async function renderHeaderFooter() {
-
   let header = `
     <div class="header-area">
       <div class="site-title" onclick="location.href = '/'">galactic<br />travels</div>
@@ -23,8 +22,8 @@ export default async function renderHeaderFooter() {
       </ul>
     </div>`;
 
-    // const menu = getJson('menu');
-    // renderListWithTemplate(menu, menuFn, '.menu');
+  const menu = await getJson('menu');
+  
 
   let footer = `<p>&copy; Not a real website</p>
   <div id="footer-planet"></div>`;
@@ -35,6 +34,8 @@ export default async function renderHeaderFooter() {
 
   footerEl.textContent = '';
   footerEl.insertAdjacentHTML('afterbegin', footer);
+
+  renderListWithTemplate(menu, menuFn, '.menu');
 
   // menu toggle event listener
   document.addEventListener('click', (event) => {
@@ -96,12 +97,24 @@ function toggleMenu() {
   }
 }
 
-// function menuFn(list) {
-//   let menu = list.map((item) => {
-//     let menuItem = `<li onclick="location.href = '${item.url}'">${item.title}</li>`;
-//     if (item.submenu) {
-//       manuItem += menuFn(item.submenu);
-//     }
-//   })
-//   return menu.join('');
-// }
+function menuFn(item) {
+  let menuItem = `<li class="menu-item" onclick="location.href = '${item.url}'">${item.title}</li>`;
+  if (item.submenu) {
+    menuItem = `<li class="menu-item supermenu" onclick="location.href = '${item.url}'">${item.title}</li>`;
+    let submenuItems = renderListWithTemplate(
+      item.submenu,
+      submenuFn,
+      '.menu',
+      false,
+      'beforeend',
+      false,
+    );
+    menuItem += submenuItems;
+  }
+
+  return menuItem;
+}
+
+function submenuFn(item) {
+  return `<li class="menu-item submenu" onclick="location.href = '${item.url}'">${item.title}</li>`;
+}

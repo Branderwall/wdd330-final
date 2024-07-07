@@ -121,6 +121,7 @@ button[type='submit'] {
   color: var(--credit-yellow); */
   font-weight: bold;
   padding: 1rem;
+  cursor: pointer;
 }
 
 button[type='submit']:hover {
@@ -244,15 +245,29 @@ button[type='submit']:active {
   margin: 0;
 }
 
-.menu li {
+.menu-item {
   color: var(--credit-yellow);
   padding: 0.5rem;
   background-color: var(--space-black);
   border: solid 1px var(--credit-yellow);
+  cursor: pointer;
 }
 
-.menu li:hover {
-  cursor: pointer;
+.menu-item:hover {
+  color: var(--space-black);
+  background-color: var(--credit-yellow);
+}
+
+.supermenu::after {
+  content: '+';
+  float: right;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.submenu {
+  padding-left: 2rem;
+  /* display: none; */
 }
 
 .content {
