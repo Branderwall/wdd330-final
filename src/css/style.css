@@ -198,7 +198,7 @@ button[type='submit']:active {
 }
 
 #footer-planet {
-  background: linear-gradient(to top left, red, yellow);
+  background: linear-gradient(to top left, var(--vader-red), var(--credit-yellow));
   border-radius: 100% 100% 0 0;
   width: 100vw;
   height: 100px;

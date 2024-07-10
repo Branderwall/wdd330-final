@@ -1,7 +1,7 @@
 import { qs, setData } from './utils';
 import { getJson } from './dataServices.js';
 
-export async function renderSlider(src = 'slider') {
+export async function renderSlider(src = 'slider-home') {
   let carousel = [];
   let data = await getJson(src);
   let slider = data.images;

@@ -26,3 +26,7 @@ export function setData(selector, data) {
   el.insertAdjacentHTML('afterbegin', data);
 }
 
+export function capitalize(word) {
+  return word[0].toUpperCase() + word.slice(1);
+}
+

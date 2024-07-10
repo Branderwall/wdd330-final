@@ -10,13 +10,16 @@ async function getDestination() {
   let name = getParam('name');
   let sliderName = '';
   if (name) {
+    sliderName = `slider-${name}`;
+    renderSlider(sliderName);
     let planetData = await getAPI(`/planets/?search=${name}`, planetSchema);
     let planetDescription = await getJson(name);
-    sliderName = `slider-${name}`;
+    
     await renderDestination(planetData[0], planetDescription);
   } else {
     sliderName = 'slider-home';
+    renderSlider(sliderName);
   }
 
-  renderSlider(sliderName);
+  // renderSlider(sliderName);
 }
