@@ -6,7 +6,15 @@
   --hyperspace-light-blue: #54a7d9;
   --r2d2-blue: #2a3182;
   --space-black: #141318;
-  --space-black-lite: #141318CC;
+  --space-black-lite: #141318cc;
+  --color-alderaan: radial-gradient(circle at center, white, transparent, transparent);
+  --color-bespin: linear-gradient(to top left, #87CEEB, #FFA07A);
+  --color-coruscant: linear-gradient(to top left, #1E90FF, #708090);
+  --color-dagobah: linear-gradient(to top left, #228B22, #8A9A5B);
+  --color-endor: linear-gradient(to top left, #0B6623, #8B4513);
+  --color-hoth: linear-gradient(to top left, #AFEEEE, #FFFFFF);
+  --color-tatooine: linear-gradient(to top left, var(--vader-red), var(--credit-yellow));
+  --color-yavin: linear-gradient(to top left, #29AB87, #8B8B7A);
 }
 
 html {
@@ -14,6 +22,10 @@ html {
   background-color: var(--space-black);
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+.test {
+  background: linear-gradient(to top left, var(--vader-red), var(--credit-yellow));
 }
 
 /* @font-face {
@@ -198,7 +210,11 @@ button[type='submit']:active {
 }
 
 #footer-planet {
-  background: linear-gradient(to top left, var(--vader-red), var(--credit-yellow));
+  background: linear-gradient(
+    to top left,
+    var(--vader-red),
+    var(--credit-yellow)
+  );
   border-radius: 100% 100% 0 0;
   width: 100vw;
   height: 100px;
@@ -259,16 +275,26 @@ button[type='submit']:active {
   background-color: var(--credit-yellow);
 }
 
+.supermenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .supermenu::after {
-  content: '+';
   float: right;
   font-weight: bold;
   font-size: 1.25rem;
 }
 
 .submenu {
-  padding-left: 2rem;
-  /* display: none; */
+  /* list-style-type: '\251C\2500'; */
+  list-style-type: none;
+}
+
+.submenu:nth-last-child(1) {
+  /* list-style-type: '\2514\2500'; */
+  list-style-type: none;
 }
 
 .content {
@@ -404,7 +430,7 @@ button[type='submit']:active {
   padding: 0.125rem 0.25rem;
 }
 
-input[type="number"] {
+input[type='number'] {
   max-width: 40px;
 }
 
@@ -418,6 +444,34 @@ input[type="number"] {
 
 .hidden {
   display: none;
+}
+
+#booking-summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.circle {
+  /* clip-path: circle(50px); */
+  width: 250px;
+  height: 250px;
+  background-color: var(--hyperspace-light-blue);
+  border-radius: 50%;
+}
+
+.travel-arrow::after {
+  content: '\2193';
+  
+  color: var(--credit-yellow);
+  font-size: 50px;
+  font-weight: 900;
+}
+
+.full-width {
+  width: 100%;
 }
 
 @keyframes starScroll {
@@ -496,5 +550,13 @@ input[type="number"] {
 
   .booking-fields > input {
     max-width: 50%;
+  }
+
+  .travel-arrow::after {
+    content: '\2192';
+  }
+
+  #booking-summary {
+    flex-direction: row;
   }
 }

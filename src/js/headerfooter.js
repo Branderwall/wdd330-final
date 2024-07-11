@@ -11,7 +11,8 @@ export default async function renderHeaderFooter() {
   let header = `
     <div class="header-area">
       <div class="site-title" onclick="location.href = '/'">galactic<br />travels</div>
-      <button class="menu-button" type="button">&#9776;</button>
+      <button class="menu-button" type="button">
+        <i class="fa-solid fa-bars"></i>
     </div>`;
 
   let nav = `<div id="header-nav" class="header-menu hidden">
@@ -23,7 +24,6 @@ export default async function renderHeaderFooter() {
     </div>`;
 
   const menu = await getJson('menu');
-  
 
   let footer = `<p>&copy; Not a real website</p>
   <div id="footer-planet"></div>`;
@@ -42,6 +42,13 @@ export default async function renderHeaderFooter() {
     let target = event.target.closest('.menu-button');
     if (target) {
       toggleMenu();
+    }
+  });
+
+  document.addEventListener('click', (event) => {
+    let target = event.target.closest('.supermenu');
+    if (target) {
+      toggleSubMenu();
     }
   });
 
@@ -83,24 +90,31 @@ function generateRandomCoords(length) {
 }
 
 function toggleMenu() {
-  showMenu = !showMenu;
   let menu = qs('#header-nav');
-  let menuBtn = qs('.menu-button');
-  if (showMenu) {
-    menu.classList.add('menu-open');
-    menu.classList.remove('hidden');
-    menuBtn.innerHTML = '&times;';
-  } else {
-    menu.classList.add('hidden');
-    menu.classList.remove('menu-open');
-    menuBtn.innerHTML = '&#9776;';
-  }
+  // let menuBtn = qs('.menu-button');
+  let menuBtnIcon = qs('.menu-button i');
+
+  menu.classList.toggle('menu-open');
+  menu.classList.toggle('hidden');
+  menuBtnIcon.classList.toggle('fa-xmark');
+  menuBtnIcon.classList.toggle('fa-bars');
+}
+
+function toggleSubMenu() {
+  let superMenu = qs('.supermenu');
+  let superMenuList = qs('.supermenu-list');
+  let dropdownIcon = qs('.supermenu i');
+  superMenu.classList.toggle('submenu-open');
+  superMenuList.classList.toggle('hidden');
+  dropdownIcon.classList.toggle('fa-caret-right');
+  dropdownIcon.classList.toggle('fa-caret-down');
 }
 
 function menuFn(item) {
-  let menuItem = `<li class="menu-item" onclick="location.href = '${item.url}'">${item.title}</li>`;
+  let menuItem = `<li class="menu-item" onclick="location.href='${item.url}'">${item.title}</li>`;
   if (item.submenu) {
-    menuItem = `<li class="menu-item supermenu" onclick="location.href = '${item.url}'">${item.title}</li>`;
+    menuItem = `<li class="menu-item supermenu"><span onclick="location.href='${item.url}'">${item.title}</span><span onclick="${toggleSubMenu}"><i class="fa-solid fa-caret-right"></i></span></li>
+    <ul class="supermenu-list hidden">`;
     let submenuItems = renderListWithTemplate(
       item.submenu,
       submenuFn,
@@ -110,6 +124,7 @@ function menuFn(item) {
       false,
     );
     menuItem += submenuItems;
+    menuItem += `</ul>`;
   }
 
   return menuItem;
@@ -117,4 +132,8 @@ function menuFn(item) {
 
 function submenuFn(item) {
   return `<li class="menu-item submenu" onclick="location.href = '${item.url}'">${item.title}</li>`;
+}
+
+{
+  /* <i class="fa-solid fa-caret-down"></i> */
 }

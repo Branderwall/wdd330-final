@@ -16,12 +16,21 @@ function getBooking() {
    
 
   let bookingSummary = 
-  `<p>From: ${capitalize(from)}</p>
-  <p>To: ${capitalize(to)}</p>
-  <p>Leave By: ${leaveDate}</p>
-  <p>Arrive By: ${arriveDate}</p>
-  <p>Travelers: ${travelerCount}</p>
-  <p>RoundTrip: ${roundtrip ? 'Yes' : 'No'}</p>`;
+    `<section class="travel-from">
+      <p>From: ${capitalize(from)}</p>
+      <div class="circle" style="background: var(--color-${from})"></div>
+      <p>Leave By: ${leaveDate}</p>
+    </section>
+    <section class="travel-through">
+      <p>Travelers: ${travelerCount}</p>
+      <div class="travel-arrow"></div>
+      <p>RoundTrip: ${roundtrip ? 'Yes' : 'No'}</p>
+    </section>
+    <section class="travel-to">
+      <p>To: ${capitalize(to)}</p>
+      <div class="circle" style="background: var(--color-${to})"></div>
+      <p>Arrive By: ${arriveDate}</p>
+    </section>`;
 
   setData('#booking-summary', bookingSummary);
 
