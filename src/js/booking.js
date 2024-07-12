@@ -10,26 +10,28 @@ function getBooking() {
   let from = getParam('from');
   let to = getParam('to');
   let leaveDate = getParam('leave-date');
-  let arriveDate = getParam('arrive-date');
+  let returnDate = getParam('return-date');
   let travelerCount = getParam('traveler-count');
   let roundtrip = getParam('roundtrip');
-   
 
-  let bookingSummary = 
-    `<section class="travel-from">
+  let travelArrow = `<div class="icon travel-arrow"></div>`;
+  travelArrow += roundtrip ? `<div class="icon travel-arrow2"></div>` : ``;
+
+  let bookingSummary = `<section class="travel-from">
       <p>From: ${capitalize(from)}</p>
+      <i class="fa-solid fa-arrow-down-long"></i>
       <div class="circle" style="background: var(--color-${from})"></div>
       <p>Leave By: ${leaveDate}</p>
     </section>
     <section class="travel-through">
       <p>Travelers: ${travelerCount}</p>
-      <div class="travel-arrow"></div>
+      <div class="travel-arrow-container">${travelArrow}</div>
       <p>RoundTrip: ${roundtrip ? 'Yes' : 'No'}</p>
     </section>
     <section class="travel-to">
       <p>To: ${capitalize(to)}</p>
       <div class="circle" style="background: var(--color-${to})"></div>
-      <p>Arrive By: ${arriveDate}</p>
+      <p>Return On: ${returnDate}</p>
     </section>`;
 
   setData('#booking-summary', bookingSummary);
@@ -43,6 +45,6 @@ function getBooking() {
   roundtrip=on
 
   */
- 
+
   // renderSlider(sliderName);
 }

@@ -12,7 +12,7 @@ let formTest = {
   from: 'Alderaan',
   to: 'Coruscant',
   leaveDate: '2024-07-24',
-  arriveDate: '2024-08-01',
+  returnDate: '2024-08-01',
   travelerCount: 3,
   roundtrip: true
 }
@@ -23,7 +23,7 @@ function prefillForm(test) {
   qs('#from').value = test.from;
   qs('#to').value = test.to;
   qs('#leave-date').value = test.leaveDate;
-  qs('#arrive-date').value = test.arriveDate;
+  qs('#return-date').value = test.returnDate;
   qs('#traveler-count').value = test.travelerCount;
   qs('#roundtrip').checked = test.roundtrip;
 }

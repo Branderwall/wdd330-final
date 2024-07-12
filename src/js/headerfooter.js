@@ -5,7 +5,7 @@ import { qs } from './utils';
 let headerEl = qs('header');
 let footerEl = qs('footer');
 
-let showMenu = false;
+// let showMenu = false;
 
 export default async function renderHeaderFooter() {
   let header = `

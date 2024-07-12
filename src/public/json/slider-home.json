@@ -1,12 +1,32 @@
 {
   "images": [
     {
-      "src": "/images/hoth-valley.jpeg",
-      "alt": "white valley covered in snow with snowy hills on either side"
+      "src": "/images/Cloud City.jpeg",
+      "alt": "A Majestic round city floats above the white clouds with ships flying around it"
+    },
+    {
+      "src": "/images/Coruscant Nighttime.jpeg",
+      "alt": "Tall rise above a darkened cityscape with lit streets and a moon rising in the distance"
+    },
+    {
+      "src": "/images/Dagobah Swamp.jpeg",
+      "alt": "A pool of swampy water surrounded fog and by gnarled, moss covered trees"
+    },
+    {
+      "src": "/images/Endor Bridge Path.jpeg",
+      "alt": "A wood plank bridge path through a dense forest"
     },
     {
       "src": "/images/hoth-ice-cave.jpeg",
       "alt": "interior of an ice cave looking out at a snowy landscape"
+    },
+    {
+      "src": "/images/Twin Sunset Vista.jpg",
+      "alt": "Two suns setting over a sandy expanse"
+    },
+    {
+      "src": "/images/Massassi Temple.jpeg",
+      "alt": "A stone pyramid rises majestically out of a dense rainforest"
     }
   ]
 }

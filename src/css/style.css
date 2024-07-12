@@ -47,6 +47,12 @@ html {
 } */
 
 @font-face {
+  font-family: 'Font Awesome 6 Free';
+  src: url('');
+  font-weight: 900;
+}
+
+@font-face {
   font-family: 'star_jedi_hollowregular';
   src:
     url('/fonts/starjhol-webfont.woff2') format('woff2'),
@@ -462,9 +468,29 @@ input[type='number'] {
   border-radius: 50%;
 }
 
+.icon::after {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.travel-arrow-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .travel-arrow::after {
   content: '\2193';
-  
+  font: var(--fa-font-solid);
+  color: var(--credit-yellow);
+  font-size: 50px;
+  font-weight: 900;
+}
+
+.travel-arrow2::after {
+  content: '\2191';
+  font: var(--fa-font-solid);
   color: var(--credit-yellow);
   font-size: 50px;
   font-weight: 900;
@@ -552,8 +578,15 @@ input[type='number'] {
     max-width: 50%;
   }
 
+  .travel-arrow-container {
+    flex-direction: column;
+  }
+
   .travel-arrow::after {
     content: '\2192';
+  }
+  .travel-arrow2::after {
+    content: '\2190';
   }
 
   #booking-summary {
