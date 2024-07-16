@@ -9,7 +9,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <script src="./js/main.js" type="module"></script>
-    <script src="https://kit.fontawesome.com/8fc9e95924.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/8fc9e95924.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Galactic Travels</title>
   </head>
   <body>
@@ -23,7 +26,12 @@
         </div>
         <ul id="slider">
           <li id="slide-placeholder" class="slide">
-            <img id="slide-image-1" class="slide-image" src="/images/slider-placeholder.jpg" alt="slider loading" />
+            <img
+              id="slide-image-1"
+              class="slide-image"
+              src="/images/slider-placeholder.jpg"
+              alt="slider loading"
+            />
           </li>
         </ul>
         <div class="arrow-container">
@@ -35,24 +43,58 @@
       <div class="booking-form content-width">
         <h2 class="form-title">Book Your Trip</h2>
         <form name="booking" class="booking-form" action="/booking/">
+          <fieldset class="booking-fields flex-row">
+            <label for="roundtrip">One-Way</label>
+            <label class="switch">
+              <input
+                type="checkbox"
+                name="roundtrip"
+                id="roundtrip"
+                title="Roundtrip"
+                data-return-toggle
+              />
+              <span class="form-slider round"></span>
+            </label>
+            <label for="roundtrip">Round Trip</label>
+          </fieldset>
           <fieldset class="booking-fields">
-            <legend>Destinations</legend>
             <label for="from">Leave From</label>
-            <input type="text" id="from" name="from" list="from-list" placeholder="From Destination" />
+            <input
+              type="text"
+              id="from"
+              name="from"
+              list="from-list"
+              placeholder="From Destination"
+            />
             <datalist id="from-list"></datalist>
             <label for="to">Arrive At</label>
-            <input type="text" id="to" name="to" list="to-list" placeholder="To Destination" />
+            <input
+              type="text"
+              id="to"
+              name="to"
+              list="to-list"
+              placeholder="To Destination"
+            />
             <datalist id="to-list"></datalist>
           </fieldset>
           <fieldset class="booking-fields">
-            <legend>Timing</legend>
             <label for="leave-date">Leave By</label>
-            <input type="date" id="leave-date" name="leave-date" placeholder="Leave By" />
-            <label for="return-date">Return On</label>
-            <input type="date" id="return-date" name="return-date" placeholder="Return On" />
+            <input
+              type="date"
+              id="leave-date"
+              name="leave-date"
+              placeholder="Leave By"
+            />
+            <label for="return-date" data-return-toggle-this>Return On</label>
+            <input
+              type="date"
+              id="return-date"
+              name="return-date"
+              placeholder="Return On"
+              data-return-toggle-this
+            />
           </fieldset>
           <fieldset class="booking-fields">
-            <legend>Travel Arrangements</legend>
             <label for="traveler-count">Travelers</label>
             <input
               type="number"
@@ -63,16 +105,6 @@
               min="1"
               max="8"
             />
-            <div>
-              <label for="roundtrip">Roundtrip</label>
-              <input
-                type="checkbox"
-                name="roundtrip"
-                id="roundtrip"
-                title="Roundtrip"
-                unchecked
-              />
-            </div>
           </fieldset>
 
           <button type="submit">Book Travel</button>
