@@ -20,6 +20,21 @@ export function getParam(param) {
   return urlParams.get(param);
 }
 
+export function getParams() {
+  const params = window.location.search.toLowerCase();
+  let urlParams = new URLSearchParams(params);
+  let paramSet = paramsToObject(urlParams.entries());
+  return paramSet;
+}
+
+function paramsToObject(entries) {
+  const result = {}
+  for(const [key, value] of entries) { // each 'entry' is a [key, value] tupple
+    result[key] = value;
+  }
+  return result;
+}
+
 export function setData(selector, data) {
   const el = qs(selector);
   el.textContent = '';

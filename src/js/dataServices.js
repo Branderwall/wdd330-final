@@ -70,10 +70,19 @@ async function subAPI(filteredData) {
   // for (let i = 0; i < 1; i++) {
   // console.log("newData: " + JSON.stringify(subPositions[i]));
   // let subAPI = await getAPI(subPositions[i]);
-  let subAPI = await getAPI(
-    'https://swapi.py4e.com/api/people/1/',
-    nameOnlySchema,
-  );
+  let subAPI = await getAPI(apiUrl + 'people/1/', nameOnlySchema);
   newData.arrayKey[0][i] = subAPI;
   // }
+}
+
+export function setStorage(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
+}
+
+export function getStorage(key) {
+  return JSON.parse(localStorage.getItem(key));
+}
+
+export function removeStorage(key) {
+  localStorage.removeItem(key);
 }

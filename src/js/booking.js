@@ -1,18 +1,24 @@
-import { getAPI, getJson, planetSchema } from './dataServices';
-import { renderDestination, renderSlider } from './display';
+import { setStorage } from './dataServices';
 import renderHeaderFooter from './headerfooter';
-import { capitalize, getParam, setData } from './utils';
+import { capitalize, getParams, setData, qs } from './utils';
 
 renderHeaderFooter();
 getBooking();
 
+document.forms['checkout'].addEventListener('submit', (event) => {
+  event.preventDefault();
+  location.href = '/checkout/';
+});
+
 function getBooking() {
-  let from = getParam('from');
-  let to = getParam('to');
-  let leaveDate = getParam('leave-date');
-  let returnDate = getParam('return-date');
-  let travelerCount = getParam('traveler-count');
-  let roundtrip = getParam('roundtrip');
+  let bookingData = getParams();
+
+  let from = bookingData.from;
+  let to = bookingData.to;
+  let leaveDate = bookingData['leave-date'];
+  let returnDate = bookingData['return-date'];
+  let travelerCount = bookingData['traveler-count'];
+  let roundtrip = bookingData.roundtrip;
 
   let travelArrow = `<div class="icon travel-arrow"></div>`;
   travelArrow += roundtrip ? `<div class="icon travel-arrow2"></div>` : ``;
@@ -35,6 +41,8 @@ function getBooking() {
     </section>`;
 
   setData('#booking-summary', bookingSummary);
+
+  setStorage('gt_stor', bookingData);
 
   /*
   from=Alderaan
