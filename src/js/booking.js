@@ -1,6 +1,6 @@
 import { setStorage } from './dataServices';
 import renderHeaderFooter from './headerfooter';
-import { capitalize, getParams, setData, qs } from './utils';
+import { capitalize, getParams, setData, fullDate } from './utils';
 
 renderHeaderFooter();
 getBooking();
@@ -27,17 +27,17 @@ function getBooking() {
       <p>From: ${capitalize(from)}</p>
       <i class="fa-solid fa-arrow-down-long"></i>
       <div class="circle" style="background: var(--color-${from})"></div>
-      <p>Leave By: ${leaveDate}</p>
+      <p>Leave By: ${fullDate(leaveDate)}</p>
     </section>
     <section class="travel-through">
       <p>Travelers: ${travelerCount}</p>
       <div class="travel-arrow-container">${travelArrow}</div>
-      <p>RoundTrip: ${roundtrip ? 'Yes' : 'No'}</p>
+      <p>Round Trip: ${roundtrip ? 'Yes' : 'No'}</p>
     </section>
     <section class="travel-to">
       <p>To: ${capitalize(to)}</p>
       <div class="circle" style="background: var(--color-${to})"></div>
-      <p>Return On: ${returnDate}</p>
+      <p>Return On: ${fullDate(returnDate)}</p>
     </section>`;
 
   setData('#booking-summary', bookingSummary);

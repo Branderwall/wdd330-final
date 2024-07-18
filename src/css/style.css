@@ -7,14 +7,23 @@
   --r2d2-blue: #2a3182;
   --space-black: #141318;
   --space-black-lite: #141318cc;
-  --color-alderaan: radial-gradient(circle at center, white, transparent, transparent);
-  --color-bespin: linear-gradient(to top left, #87CEEB, #FFA07A);
-  --color-coruscant: linear-gradient(to top left, #1E90FF, #708090);
-  --color-dagobah: linear-gradient(to top left, #228B22, #8A9A5B);
-  --color-endor: linear-gradient(to top left, #0B6623, #8B4513);
-  --color-hoth: linear-gradient(to top left, #AFEEEE, #FFFFFF);
-  --color-tatooine: linear-gradient(to top left, var(--vader-red), var(--credit-yellow));
-  --color-yavin: linear-gradient(to top left, #29AB87, #8B8B7A);
+  --color-alderaan: radial-gradient(
+    circle at center,
+    white,
+    transparent,
+    transparent
+  );
+  --color-bespin: linear-gradient(to top left, #87ceeb, #ffa07a);
+  --color-coruscant: linear-gradient(to top left, #1e90ff, #708090);
+  --color-dagobah: linear-gradient(to top left, #228b22, #8a9a5b);
+  --color-endor: linear-gradient(to top left, #0b6623, #8b4513);
+  --color-hoth: linear-gradient(to top left, #afeeee, #ffffff);
+  --color-tatooine: linear-gradient(
+    to top left,
+    var(--vader-red),
+    var(--credit-yellow)
+  );
+  --color-yavin: linear-gradient(to top left, #29ab87, #8b8b7a);
 }
 
 html {
@@ -25,7 +34,11 @@ html {
 }
 
 .test {
-  background: linear-gradient(to top left, var(--vader-red), var(--credit-yellow));
+  background: linear-gradient(
+    to top left,
+    var(--vader-red),
+    var(--credit-yellow)
+  );
 }
 
 /* @font-face {
@@ -35,7 +48,7 @@ html {
     url('/fonts/starjout-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 @font-face {
   font-family: 'star_jediregular';
@@ -44,7 +57,7 @@ html {
     url('/fonts/starjedi-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-} */
+}
 
 @font-face {
   font-family: 'Font Awesome 6 Free';
@@ -57,6 +70,15 @@ html {
   src:
     url('/fonts/starjhol-webfont.woff2') format('woff2'),
     url('/fonts/starjhol-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'galactic_basicregular';
+  src:
+    url('/fonts/galacticbasic-rznb-webfont.woff2') format('woff2'),
+    url('/fonts/galacticbasic-rznb-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -89,7 +111,6 @@ body {
   /* overflow-y: hidden; */
   /* background: no-repeat center repeating-conic-gradient(from 0deg, var(--hyperspace-light-blue) 0deg 1deg, var(--space-black) 1deg 4deg); */
 }
-
 
 p {
   color: white;
@@ -526,20 +547,20 @@ input[type='number'] {
   right: 0;
   bottom: 0;
   background-color: var(--hyperspace-light-blue);
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .form-slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 26px;
   width: 26px;
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .form-slider {
@@ -564,6 +585,64 @@ input:checked + .form-slider:before {
 .form-slider.round:before {
   border-radius: 50%;
 }
+
+
+#checkout-summary {
+  background-color: var(--r2d2-blue);
+  /* background-color: var(--hyperspace-light-blue); */
+  /* background-color: transparent; */
+  /* background: repeating-linear-gradient(
+    90deg,
+    var(--hyperspace-light-blue),
+    var(--r2d2-blue) 10px,
+    var(--hyperspace-light-blue) 40px,
+    var(--r2d2-blue) 10px
+  ); */
+  color: var(--credit-yellow);
+  padding: 4rem 2rem;
+  /* box-shadow: 0 0 10rem -2rem var(--hyperspace-light-blue); */
+}
+
+#checkout-wrapper {
+  /* box-shadow: 0 0 10rem 2rem var(--hyperspace-light-blue); */
+  max-width: 500px;
+  margin: auto;
+}
+
+.bill-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.credits {
+  font-family: 'galactic_basicregular';
+}
+
+.holo {
+  animation: 3s cubic-bezier(0.25, 0.5, 0.75, 0.5) infinite placeholder-shimmer;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.25) 25%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.25) 75%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  background-size: 200%;
+  height: 100%;
+  width: 100%;
+}
+
+@keyframes placeholder-shimmer {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: -100%;
+  }
+}
+
 
 @keyframes starScroll {
   0% {
