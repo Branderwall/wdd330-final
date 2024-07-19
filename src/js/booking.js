@@ -23,21 +23,20 @@ function getBooking() {
   let travelArrow = `<div class="icon travel-arrow"></div>`;
   travelArrow += roundtrip ? `<div class="icon travel-arrow2"></div>` : ``;
 
-  let bookingSummary = `<section class="travel-from">
+  let bookingSummary = `<section class="travel-block">
       <p>From: ${capitalize(from)}</p>
-      <i class="fa-solid fa-arrow-down-long"></i>
       <div class="circle" style="background: var(--color-${from})"></div>
       <p>Leave By: ${fullDate(leaveDate)}</p>
     </section>
     <section class="travel-through">
       <p>Travelers: ${travelerCount}</p>
       <div class="travel-arrow-container">${travelArrow}</div>
-      <p>Round Trip: ${roundtrip ? 'Yes' : 'No'}</p>
+      ${roundtrip ? '<p>Round Trip</p>' : '<p>One-Way</p>'}
     </section>
-    <section class="travel-to">
+    <section class="travel-block">
       <p>To: ${capitalize(to)}</p>
       <div class="circle" style="background: var(--color-${to})"></div>
-      <p>Return On: ${fullDate(returnDate)}</p>
+      <p>${roundtrip ? 'Return On: ' + fullDate(returnDate) : ''}</p>
     </section>`;
 
   setData('#booking-summary', bookingSummary);

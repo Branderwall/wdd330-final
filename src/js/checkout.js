@@ -23,9 +23,22 @@ function getBill(cart) {
   let total = subtotal + taxPrice + travelerInsurance;
 
   let ticket = `<h2>Trip Summary</h2>
-            <p>
-              Passage for ${cart['traveler-count']} Traveler${cart['traveler-count'] > 1 ? 's' : ''} from ${capitalize(cart.from)} to ${capitalize(cart.to)} on ${fullDate(cart['leave-date'])}.${(cart.roundtrip && cart['return-date'])? ' Return trip on ' + fullDate(cart['return-date']) + '.' : ''}
+            <p class="bill-item">
+              <span>${capitalize(cart.from)}</span><i class="fa-solid fa-arrow-right-long"></i>
+              <span>${capitalize(cart.to)}</span>
             </p>
+            <p class="bill-item">
+              <span>${fullDate(cart['leave-date'])}</span>
+            </p>
+            ${(cart.roundtrip && cart['return-date']) ? `<p class="bill-item">
+                <span>${capitalize(cart.to)}</span><i class="fa-solid fa-arrow-right-long"></i>
+                <span>${capitalize(cart.from)}</span>
+              </p>
+              <p class="bill-item">
+                <span>${fullDate(cart['return-date'])}</span>` : ``}
+            </p>
+            
+           
             <hr />
             <p class="bill-item">
               <span>${cart['traveler-count']} Traveler${cart['traveler-count'] > 1 ? 's' : ''}:</span
@@ -43,7 +56,9 @@ function getBill(cart) {
             <p class="bill-item">
               <span>Total:</span><span><span class="credits">$</span>${total}</span>
             </p>
-            <button type="submit" class="full-width">Checkout</button>`
+            <section class="hidden-small">
+              <button type="submit" class="full-width">Checkout</button>
+            </section>`
 
   return ticket;
 }

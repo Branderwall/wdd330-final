@@ -47,8 +47,13 @@ export function capitalize(word) {
 }
 
 export function fullDate(date) {
-  let tempDate = new Date(date);
-  let tz = tempDate.getTimezoneOffset();
-  let options = { year: 'numeric', month: 'long', day: 'numeric', timezone: 'America/Los_Angeles'};
-  return tempDate.toLocaleDateString('default', options);
+  let tempDate = new Date(date + 'T00:00');
+  let options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timezone: 'America/Los_Angeles',
+  };
+  let newDate = tempDate.toLocaleDateString('default', options);
+  return newDate;
 }

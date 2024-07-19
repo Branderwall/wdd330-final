@@ -15,6 +15,7 @@ export default defineConfig({
         destination: resolve(__dirname, 'src/destination/index.html'),
         booking: resolve(__dirname, 'src/booking/index.html'),
         checkout: resolve(__dirname, 'src/checkout/index.html'),
+        thankyou: resolve(__dirname, 'src/checkout/thank-you.html'),
       },
     },
   },
