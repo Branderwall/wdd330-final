@@ -1,6 +1,10 @@
 {
   "images": [
     {
+      "src": "/images/Dagobah Cave.jpg",
+      "alt": "A dark cave made by tree roots and moss is highlighted by swirling moss and framed by a dark web of trees and vines"
+    },
+    {
       "src": "/images/Dagobah Swamp.jpeg",
       "alt": "A pool of swampy water surrounded fog and by gnarled, moss covered trees"
     }

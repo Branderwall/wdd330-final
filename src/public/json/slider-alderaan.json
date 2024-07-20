@@ -1,6 +1,10 @@
 {
   "images": [
     {
+      "src": "/images/Alderaan Ring.jpg",
+      "alt": "A ring of small asteroids revolve around a single star"
+    },
+    {
       "src": "/images/Alderaan.jpeg",
       "alt": "stark white asteroids floating in space around a sun."
     }

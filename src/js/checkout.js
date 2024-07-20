@@ -5,6 +5,12 @@ import { capitalize, fullDate, qs, setData } from './utils';
 renderHeaderFooter();
 getCart();
 
+
+document.forms['checkout'].addEventListener('submit', (event) => {
+  event.preventDefault();
+  location.href = '/checkout/thank-you';
+});
+
 function getCart() {
 
   const cart = getStorage('gt_stor');
@@ -57,7 +63,7 @@ function getBill(cart) {
               <span>Total:</span><span><span class="credits">$</span>${total}</span>
             </p>
             <section class="hidden-small">
-              <button type="submit" class="full-width">Checkout</button>
+              <button type="submit" class="full-width" form="checkout">Checkout</button>
             </section>`
 
   return ticket;

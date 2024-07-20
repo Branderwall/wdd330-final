@@ -1,6 +1,10 @@
 {
   "images": [
     {
+      "src": "/images/Yavin Planetrise.jpg",
+      "alt": "A stone pyramid is illuminated by both a sunrise and a planetrise from a orange gas giant"
+    },
+    {
       "src": "/images/Massassi Temple.jpeg",
       "alt": "A stone pyramid rises majestically out of a dense rainforest"
     }
