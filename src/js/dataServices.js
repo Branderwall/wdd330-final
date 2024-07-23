@@ -54,30 +54,30 @@ export function nameOnlySchema(data) {
   return filteredData;
 }
 
-// async function subAPI(filteredData) {
-//   let newData = filteredData;
-//   let subPositions = [];
-//   let arrayKey = [];
-//   newData.forEach((data) => {
-//     for (const [key, value] of Object.entries(data)) {
-//       if (Array.isArray(value)) {
-//         arrayKey.push(key);
-//         for (let i = 0; i < value.length; i++) {
-//           subPositions.push(value[i]);
-//         }
-//       }
-//     }
-//   });
+async function subAPI(filteredData) {
+  let newData = filteredData;
+  let subPositions = [];
+  let arrayKey = [];
+  newData.forEach((data) => {
+    for (const [key, value] of Object.entries(data)) {
+      if (Array.isArray(value)) {
+        arrayKey.push(key);
+        for (let i = 0; i < value.length; i++) {
+          subPositions.push(value[i]);
+        }
+      }
+    }
+  });
 
-//   //make api calls
-//   // subPositions.length
-//   // for (let i = 0; i < 1; i++) {
-//   // console.log("newData: " + JSON.stringify(subPositions[i]));
-//   // let subAPI = await getAPI(subPositions[i]);
-//   let subAPI = await getAPI(apiUrl + 'people/1/', nameOnlySchema);
-//   newData.arrayKey[0][i] = subAPI;
-//   // }
-// }
+  //make api calls
+  // subPositions.length
+  // for (let i = 0; i < 1; i++) {
+  // console.log("newData: " + JSON.stringify(subPositions[i]));
+  // let subAPI = await getAPI(subPositions[i]);
+  let subAPI = await getAPI(apiUrl + 'people/1/', nameOnlySchema);
+  newData.arrayKey[0][i] = subAPI;
+  // }
+}
 
 export function setStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));

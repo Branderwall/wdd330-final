@@ -7,7 +7,6 @@ getCart();
 
 document.forms['checkout'].addEventListener('submit', (event) => {
   event.preventDefault();
-  // validateForm();
   location.href = '/checkout/thank-you';
 });
 
@@ -21,7 +20,7 @@ function getBill(cart) {
   const pricePerTraveler = 1000;
   const tax = 0.06;
   const travelerInsurance = 200;
-  let subtotal = pricePerTraveler * cart['traveler-count'];
+  let subtotal = pricePerTraveler * cart['traveler-count'] * (cart['roundtrip'] ? 1.75 : 1);
   let taxPrice = subtotal * tax;
   let total = subtotal + taxPrice + travelerInsurance;
 
@@ -70,22 +69,3 @@ function getBill(cart) {
   return ticket;
 }
 
-function validateForm() {
-  try {
-    let expDate = qs('#exp-date');
-    expDate.addEventListener('focusout', (event) => {
-      let options = {
-        month: '2-digit',
-        year: '2-digit',
-      };
-      let date = new Intl.DateTimeFormat('en-US', options).format(
-        expDate.value,
-      );
-      if (date < new Date()) {
-        throw error;
-      }
-    });
-  } catch (error) {
-    console.log(error);
-  }
-}

@@ -28,26 +28,17 @@
               <h2>Personal Information</h2>
               <form id="checkout" name="checkout" action="/checkout/thank-you">
                 <fieldset class="checkout-fields">
-                  <label for="fname">First Name</label>
+                  <label for="fullname">Full Name</label>
                   <input
-                    id="fname"
-                    name="fname"
+                    id="fullname"
+                    name="fullname"
                     type="text"
-                    placeholder="First Name"
-                  />
-                </fieldset>
-                <fieldset class="checkout-fields">
-                  <label for="lname">Last Name</label>
-                  <input
-                    id="lname"
-                    name="lname"
-                    type="text"
-                    placeholder="Last Name"
+                    placeholder="Full Name"
                   />
                 </fieldset>
                 <fieldset class="checkout-fields">
                   <label for="email">Email</label>
-                  <input id="email" name="email" type="email" placeholder="Email" />
+                  <input id="email" name="email" type="email" placeholder="Email" pattern="/^[a-zA-Z0-9. _-]+@[a-zA-Z0-9. -]+\. [a-zA-Z]{2,4}$/" required />
                 </fieldset>
                 <fieldset class="checkout-fields">
                   <label for="address1">Address Line 1</label>
@@ -79,12 +70,13 @@
                     type="number"
                     placeholder="Zip Code"
                     size="10"
+                    
                   />
                 </fieldset>
                 <hr />
                 <fieldset class="checkout-fields">
                   <label for="card-number">Credit or Debit Card Number</label>
-                  <input id="card-number" name="card-number" type="number" />
+                  <input id="card-number" name="card-number" type="text" placeholder="" pattern="[0-9]{16}" required/>
                 </fieldset>
                 <fieldset class="checkout-fields">
                   <label for="exp-date">Exp Date MM/YY</label>
@@ -92,13 +84,14 @@
                     id="exp-date"
                     name="exp-date"
                     type="text"
-                    pattern="([0-9]{2}[/]?){2}"
+                    pattern="([0-9]{2}[\/]?){2}"
                     placeholder="MM/YY"
+                    required
                   />
                 </fieldset>
                 <fieldset class="checkout-fields">
                   <label for="sec-code">Security Code</label>
-                  <input id="sec-code" name="sec-code" type="number" size="5" />
+                  <input id="sec-code" name="sec-code" type="number" size="5" pattern="[0-9]{3,4}" placeholder="###" required />
                 </fieldset>
               </form>
             </section>
