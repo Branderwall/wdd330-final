@@ -11,19 +11,20 @@ document.forms['checkout'].addEventListener('submit', (event) => {
 });
 
 function getBooking() {
-  let bookingData = getParams();
+  try {
+    let bookingData = getParams();
 
-  let from = bookingData.from;
-  let to = bookingData.to;
-  let leaveDate = bookingData['leave-date'];
-  let returnDate = bookingData['return-date'];
-  let travelerCount = bookingData['traveler-count'];
-  let roundtrip = bookingData.roundtrip;
+    let from = bookingData.from;
+    let to = bookingData.to;
+    let leaveDate = bookingData['leave-date'];
+    let returnDate = bookingData['return-date'];
+    let travelerCount = bookingData['traveler-count'];
+    let roundtrip = bookingData.roundtrip;
 
-  let travelArrow = `<div class="icon travel-arrow"></div>`;
-  travelArrow += roundtrip ? `<div class="icon travel-arrow2"></div>` : ``;
+    let travelArrow = `<div class="icon travel-arrow"></div>`;
+    travelArrow += roundtrip ? `<div class="icon travel-arrow2"></div>` : ``;
 
-  let bookingSummary = `<section class="travel-block">
+    let bookingSummary = `<section class="travel-block">
       <p>From: ${capitalize(from)}</p>
       <div class="circle" style="background: var(--color-${from})"></div>
       <p>Leave By: ${fullDate(leaveDate)}</p>
@@ -39,9 +40,12 @@ function getBooking() {
       <p>${roundtrip ? 'Return On: ' + fullDate(returnDate) : ''}</p>
     </section>`;
 
-  setData('#booking-summary', bookingSummary);
+    setData('#booking-summary', bookingSummary);
 
-  setStorage('gt_stor', bookingData);
+    setStorage('gt_stor', bookingData);
+  } catch (error) {
+    console.error(error);
+  }
 
   /*
   from=Alderaan
