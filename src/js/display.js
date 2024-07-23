@@ -1,4 +1,4 @@
-import { qs, setData } from './utils';
+import { capitalize, commaSep, qs, setData } from './utils';
 import { getJson } from './dataServices.js';
 
 export async function renderSlider(src = 'slider-home') {
@@ -36,10 +36,12 @@ export async function renderSlider(src = 'slider-home') {
 }
 
 export async function renderDestination(data, data2) {
+
   setData('#planet-name', data.name);
-  setData('#climate', 'Climate: ' + data.climate);
-  setData('#terrain', 'Terrain: ' + data.terrain);
-  setData('#population', 'Population: ' + data.population);
+  setData('#climate', 'Climate: ' + capitalize(data.climate));
+  setData('#terrain', 'Terrain: ' + capitalize(data.terrain));
+  const population = !isNaN(Number(data.population)) ? commaSep(data.population) : capitalize(data.population);
+  setData('#population', 'Population: ' + population);
   setData('title', `${data.name} | Destinations`);
 
   let titleSelector = '.description > h2';

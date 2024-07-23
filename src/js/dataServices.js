@@ -17,21 +17,25 @@ export async function getAPI(url = '', filter = (info) => info) {
   }
 
   let data = [];
-  let response = await fetch(path);
-  let rawData = await convertToJson(response);
-  data = data.concat(rawData.results);
+  try {
+    let response = await fetch(path);
+    let rawData = await convertToJson(response);
+    data = data.concat(rawData.results);
 
-  if (rawData.next !== null) {
-    let nextData = await getAPI(rawData.next);
-    data = data.concat(nextData);
+    if (rawData.next !== null) {
+      let nextData = await getAPI(rawData.next);
+      data = data.concat(nextData);
+    }
+
+    let filteredData = data.map((item) => {
+      return filter(item);
+    });
+
+    // await subAPI(filteredData);
+    return filteredData;
+  } catch (error) {
+    console.error('Error fetching data: ', error);
   }
-
-  let filteredData = data.map((item) => {
-    return filter(item);
-  });
-
-  // await subAPI(filteredData);
-  return filteredData;
 }
 
 export function planetSchema(data) {
@@ -50,30 +54,30 @@ export function nameOnlySchema(data) {
   return filteredData;
 }
 
-async function subAPI(filteredData) {
-  let newData = filteredData;
-  let subPositions = [];
-  let arrayKey = [];
-  newData.forEach((data) => {
-    for (const [key, value] of Object.entries(data)) {
-      if (Array.isArray(value)) {
-        arrayKey.push(key);
-        for (let i = 0; i < value.length; i++) {
-          subPositions.push(value[i]);
-        }
-      }
-    }
-  });
+// async function subAPI(filteredData) {
+//   let newData = filteredData;
+//   let subPositions = [];
+//   let arrayKey = [];
+//   newData.forEach((data) => {
+//     for (const [key, value] of Object.entries(data)) {
+//       if (Array.isArray(value)) {
+//         arrayKey.push(key);
+//         for (let i = 0; i < value.length; i++) {
+//           subPositions.push(value[i]);
+//         }
+//       }
+//     }
+//   });
 
-  //make api calls
-  // subPositions.length
-  // for (let i = 0; i < 1; i++) {
-  // console.log("newData: " + JSON.stringify(subPositions[i]));
-  // let subAPI = await getAPI(subPositions[i]);
-  let subAPI = await getAPI(apiUrl + 'people/1/', nameOnlySchema);
-  newData.arrayKey[0][i] = subAPI;
-  // }
-}
+//   //make api calls
+//   // subPositions.length
+//   // for (let i = 0; i < 1; i++) {
+//   // console.log("newData: " + JSON.stringify(subPositions[i]));
+//   // let subAPI = await getAPI(subPositions[i]);
+//   let subAPI = await getAPI(apiUrl + 'people/1/', nameOnlySchema);
+//   newData.arrayKey[0][i] = subAPI;
+//   // }
+// }
 
 export function setStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));

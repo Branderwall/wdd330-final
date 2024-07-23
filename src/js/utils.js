@@ -37,13 +37,21 @@ function paramsToObject(entries) {
 }
 
 export function setData(selector, data) {
-  const el = qs(selector);
-  el.textContent = '';
-  el.insertAdjacentHTML('afterbegin', data);
+  try {
+    const el = qs(selector);
+    el.textContent = '';
+    el.insertAdjacentHTML('afterbegin', data);
+  } catch (error) {
+    console.error(`Not a valid selector: ${selector}`, error);
+  }
 }
 
 export function capitalize(word) {
   return word[0].toUpperCase() + word.slice(1);
+}
+
+export function commaSep(number) {
+  return new Intl.NumberFormat('en-US').format(number);
 }
 
 export function fullDate(date) {

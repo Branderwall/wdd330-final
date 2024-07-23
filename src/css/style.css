@@ -90,6 +90,10 @@
   font-style: normal;
 } */
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   height: 100%;
   background-color: var(--space-black);
@@ -341,6 +345,17 @@ hr {
   position: relative;
 }
 
+.full-content-width {
+  max-width: 1280px;
+  padding: 0;
+  margin: auto;
+  position: relative;
+}
+
+.content-back {
+  background-color: var(--space-black-lite);
+}
+
 .hero-slider {
   display: flex;
   overflow: hidden;
@@ -361,7 +376,7 @@ hr {
 
 .slide {
   width: 100%;
-  max-height: 90vh;
+  max-height: 80vh;
   height: 100%;
   flex: 1 0 100%;
   /* background-size: cover;

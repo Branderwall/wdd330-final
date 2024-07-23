@@ -5,18 +5,15 @@ import { capitalize, fullDate, qs, setData } from './utils';
 renderHeaderFooter();
 getCart();
 
-
 document.forms['checkout'].addEventListener('submit', (event) => {
   event.preventDefault();
+  // validateForm();
   location.href = '/checkout/thank-you';
 });
 
 function getCart() {
-
   const cart = getStorage('gt_stor');
-  let summary = cart
-    ? getBill(cart)
-    : `<h2>Your cart is empty.</h2>`;
+  let summary = cart ? getBill(cart) : `<h2>Your cart is empty.</h2>`;
   setData('#checkout-summary', summary);
 }
 
@@ -36,12 +33,16 @@ function getBill(cart) {
             <p class="bill-item">
               <span>${fullDate(cart['leave-date'])}</span>
             </p>
-            ${(cart.roundtrip && cart['return-date']) ? `<p class="bill-item">
+            ${
+              cart.roundtrip && cart['return-date']
+                ? `<p class="bill-item">
                 <span>${capitalize(cart.to)}</span><i class="fa-solid fa-arrow-right-long"></i>
                 <span>${capitalize(cart.from)}</span>
               </p>
               <p class="bill-item">
-                <span>${fullDate(cart['return-date'])}</span>` : ``}
+                <span>${fullDate(cart['return-date'])}</span>`
+                : ``
+            }
             </p>
             
            
@@ -64,7 +65,27 @@ function getBill(cart) {
             </p>
             <section class="hidden-small">
               <button type="submit" class="full-width" form="checkout">Checkout</button>
-            </section>`
+            </section>`;
 
   return ticket;
+}
+
+function validateForm() {
+  try {
+    let expDate = qs('#exp-date');
+    expDate.addEventListener('focusout', (event) => {
+      let options = {
+        month: '2-digit',
+        year: '2-digit',
+      };
+      let date = new Intl.DateTimeFormat('en-US', options).format(
+        expDate.value,
+      );
+      if (date < new Date()) {
+        throw error;
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
 }
