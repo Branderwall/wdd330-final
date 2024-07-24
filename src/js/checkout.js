@@ -20,7 +20,8 @@ function getBill(cart) {
   const pricePerTraveler = 1000;
   const tax = 0.06;
   const travelerInsurance = 200;
-  let subtotal = pricePerTraveler * cart['traveler-count'] * (cart['roundtrip'] ? 1.75 : 1);
+  let subtotal =
+    pricePerTraveler * cart['traveler-count'] * (cart['roundtrip'] ? 1.75 : 1);
   let taxPrice = subtotal * tax;
   let total = subtotal + taxPrice + travelerInsurance;
 
@@ -68,4 +69,3 @@ function getBill(cart) {
 
   return ticket;
 }
-

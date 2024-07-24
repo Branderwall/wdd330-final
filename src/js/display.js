@@ -36,11 +36,12 @@ export async function renderSlider(src = 'slider-home') {
 }
 
 export async function renderDestination(data, data2) {
-
   setData('#planet-name', data.name);
   setData('#climate', 'Climate: ' + capitalize(data.climate));
   setData('#terrain', 'Terrain: ' + capitalize(data.terrain));
-  const population = !isNaN(Number(data.population)) ? commaSep(data.population) : capitalize(data.population);
+  const population = !isNaN(Number(data.population))
+    ? commaSep(data.population)
+    : capitalize(data.population);
   setData('#population', 'Population: ' + population);
   setData('title', `${data.name} | Destinations`);
 

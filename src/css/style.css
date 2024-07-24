@@ -154,6 +154,7 @@ footer {
 
 input,
 label,
+select,
 button {
   font-size: 1.25rem;
 }
@@ -606,7 +607,7 @@ input:checked + .form-slider:before {
   box-shadow: inset 0 0 2px 2px var(--vader-red);
 } */
 
-label:has(+ input:required)::after {
+label:has(+ input:required, + select:required)::after {
   content: '* required';
   color: var(--vader-red);
   font-size: smaller;
@@ -682,6 +683,12 @@ input:user-invalid {
 .flex-rev {
   display: flex;
   flex-direction: column;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .bill-item {

@@ -58,33 +58,62 @@
             <label for="roundtrip">Round Trip</label>
           </fieldset>
           <fieldset class="booking-fields">
+            <div class="flex-col">
             <label for="from">Leave From</label>
-            <input
+            <select
               type="text"
               id="from"
               name="from"
               list="from-list"
               placeholder="From Destination"
-            />
+              required
+            ></select>
+            <!-- <input
+              type="text"
+              id="from"
+              name="from"
+              list="from-list"
+              placeholder="From Destination"
+              required
+            /> -->
             <datalist id="from-list"></datalist>
+            </div>
+            <div class="flex-col">
             <label for="to">Arrive At</label>
-            <input
+            <select
               type="text"
               id="to"
               name="to"
               list="to-list"
               placeholder="To Destination"
-            />
-            <datalist id="to-list"></datalist>
+              required
+            >
+            <div id="to-list"></div> 
+            </select>
+            <!--<input
+            type="text"
+            id="to"
+            name="to"
+            list="to-list"
+            placeholder="To Destination"
+            required
+          />
+          <datalist id="to-list"></datalist>
+            -->
+            </div>
           </fieldset>
           <fieldset class="booking-fields">
+            <div class="flex-col">
             <label for="leave-date">Leave By</label>
             <input
               type="date"
               id="leave-date"
               name="leave-date"
               placeholder="Leave By"
+              required
             />
+            </div>
+            <div class="flex-col">
             <label for="return-date" data-return-toggle-this>Return On</label>
             <input
               type="date"
@@ -93,6 +122,7 @@
               placeholder="Return On"
               data-return-toggle-this
             />
+            </div>
           </fieldset>
           <fieldset class="booking-fields">
             <label for="traveler-count">Travelers</label>

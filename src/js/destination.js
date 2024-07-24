@@ -14,7 +14,7 @@ async function getDestination() {
     renderSlider(sliderName);
     let planetData = await getAPI(`/planets/?search=${name}`, planetSchema);
     let planetDescription = await getJson(name);
-    
+
     await renderDestination(planetData[0], planetDescription);
   } else {
     sliderName = 'slider-home';
